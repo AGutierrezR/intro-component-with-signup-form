@@ -13,28 +13,34 @@
     <title>Frontend Mentor | Intro component with sign up form</title>
   </head>
   <body
-    class="bg-red bg-[url('/images/bg-intro-mobile.png')] bg-cover bg-repeat"
+    class="min-h-screen bg-red bg-[url('/images/bg-intro-mobile.png')] bg-cover bg-repeat lg:bg-[url('/images/bg-intro-desktop.png')]"
   >
     <main>
-      <div class="mx-auto max-w-xl px-6 pt-10">
-        <div class="py-12 text-center text-white">
-          <h1 class="text-[1.75rem]/[1.4] font-semibold">
+      <div
+        class="mx-auto max-w-xl px-6 py-10 lg:flex lg:min-h-screen lg:max-w-6xl lg:gap-7"
+      >
+        <div
+          class="py-12 text-center text-white lg:flex lg:w-1/2 lg:flex-col lg:justify-center lg:text-left"
+        >
+          <h1
+            class="text-[1.75rem]/[1.4] font-bold lg:text-left lg:text-[48px]/[1.15]"
+          >
             Learn to code by watching others
           </h1>
-          <p class="mt-5 leading-[1.6]">
+          <p class="mt-5 leading-[1.6] lg:mt-8">
             See how experienced developers solve problems in real-time. Watching
             scripted tutorials is great, but understanding how developers think
             is invaluable.
           </p>
         </div>
-        <div class="py-4">
+        <div class="py-4 lg:flex lg:w-1/2 lg:flex-col lg:justify-center">
           <p
-            class="w-full rounded-xl bg-blue px-16 py-4 text-center text-base/7 text-white shadow"
+            class="w-full rounded-xl bg-blue/50 px-16 py-4 text-center text-base/7 text-white shadow"
           >
             <b>Try it free 7 days</b> then $20/mo. thereafter
           </p>
           <form
-            class="mt-5 flex flex-col gap-[18px] rounded-xl bg-white px-6 py-7 pb-6 shadow"
+            class="mt-5 flex flex-col gap-[18px] rounded-xl bg-white/50 px-6 py-7 pb-6 shadow lg:mt-6 lg:gap-5 lg:px-10 lg:py-10"
           >
             <div>
               <label class="sr-only" for="first-name">First Name</label>
@@ -83,7 +89,7 @@
               >
                 Claim your free trial
               </button>
-              <p class="mt-2 px-4 text-center leading-[1.2rem]">
+              <p class="mt-2 px-4 text-center leading-[1.2rem] lg:mt-4">
                 <small class="text-[0.7rem] font-medium text-grayish-blue">
                   By clicking the button, you are agreeing to our
                   <a href="" class="font-bold text-red"
