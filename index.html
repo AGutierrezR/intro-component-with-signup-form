@@ -17,7 +17,7 @@
   >
     <main>
       <div
-        class="mx-auto max-w-xl px-6 py-10 lg:flex lg:min-h-screen lg:max-w-6xl lg:gap-7"
+        class="mx-auto max-w-xl px-6 py-10 lg:flex lg:min-h-screen lg:max-w-6xl lg:gap-7 lg:py-0"
       >
         <div
           class="py-12 text-center text-white lg:flex lg:w-1/2 lg:flex-col lg:justify-center lg:text-left"
@@ -35,52 +35,118 @@
         </div>
         <div class="py-4 lg:flex lg:w-1/2 lg:flex-col lg:justify-center">
           <p
-            class="w-full rounded-xl bg-blue/50 px-16 py-4 text-center text-base/7 text-white shadow"
+            class="w-full rounded-xl bg-blue px-16 py-4 text-center text-base/7 text-white shadow"
           >
             <b>Try it free 7 days</b> then $20/mo. thereafter
           </p>
           <form
-            class="mt-5 flex flex-col gap-[18px] rounded-xl bg-white/50 px-6 py-7 pb-6 shadow lg:mt-6 lg:gap-5 lg:px-10 lg:py-10"
+            x-data="form"
+            class="mt-5 flex flex-col gap-[18px] rounded-xl bg-white px-6 py-7 pb-6 shadow lg:mt-6 lg:gap-5 lg:px-10 lg:py-10"
+            @submit.prevent="validateForm()"
           >
             <div>
               <label class="sr-only" for="first-name">First Name</label>
-              <input
-                id="first-name"
-                name="first-name"
-                placeholder="First Name"
-                class="w-full rounded-md border border-grayish-blue/60 px-5 py-4 text-sm font-semibold text-dark-blue caret-blue placeholder:text-dark-blue/80 focus:border-blue focus:outline-none"
-                type="text"
-              />
+              <div class="relative">
+                <input
+                  id="first-name"
+                  name="first-name"
+                  placeholder="First Name"
+                  class="w-full rounded-md border border-grayish-blue/60 px-5 py-4 pr-18 text-sm font-semibold text-dark-blue caret-blue placeholder:text-dark-blue/80 focus:border-blue focus:outline-none"
+                  type="text"
+                  x-model="firstName.value"
+                />
+                <div
+                  class="absolute bottom-0 right-0 top-0 flex items-center pr-6"
+                  :class="firstName.valid ? 'hidden' : 'block'"
+                >
+                  <img class="" src="/images/icon-error.svg" alt="" />
+                </div>
+              </div>
+              <strong
+                id="first-name-error"
+                :class="firstName.valid ? 'hidden' : 'block'"
+                class="mt-2 w-full text-right text-[.6875rem] font-medium italic text-red"
+                aria-live="polite"
+                x-text="firstName.message"
+              ></strong>
             </div>
             <div>
               <label class="sr-only" for="last-name">Last Name</label>
-              <input
-                id="last-name"
-                name="last-name"
-                placeholder="Last Name"
-                class="w-full rounded-md border border-grayish-blue/60 px-5 py-4 text-sm font-semibold text-dark-blue caret-blue placeholder:text-dark-blue/80 focus:border-blue focus:outline-none"
-                type="text"
-              />
+              <div class="relative">
+                <input
+                  id="last-name"
+                  name="last-name"
+                  placeholder="Last Name"
+                  class="w-full rounded-md border border-grayish-blue/60 px-5 py-4 pr-18 text-sm font-semibold text-dark-blue caret-blue placeholder:text-dark-blue/80 focus:border-blue focus:outline-none"
+                  type="text"
+                  x-model="lastName.value"
+                />
+                <div
+                  class="absolute bottom-0 right-0 top-0 flex items-center pr-6"
+                  :class="lastName.valid ? 'hidden' : 'block'"
+                >
+                  <img class="" src="/images/icon-error.svg" alt="" />
+                </div>
+              </div>
+              <strong
+                id="last-name-error"
+                class="mt-2 block w-full text-right text-[.6875rem] font-medium italic text-red"
+                :class="lastName.valid ? 'hidden' : 'block'"
+                aria-live="polite"
+                x-text="lastName.message"
+              ></strong>
             </div>
             <div>
               <label class="sr-only" for="email">Email Address</label>
-              <input
-                id="email"
-                name="email"
-                placeholder="Email Address"
-                class="w-full rounded-md border border-grayish-blue/60 px-5 py-4 text-sm font-semibold text-dark-blue caret-blue placeholder:text-dark-blue/80 focus:border-blue focus:outline-none"
-                type="email"
-              />
+              <div class="relative">
+                <input
+                  id="email"
+                  name="email"
+                  placeholder="Email Address"
+                  class="w-full rounded-md border border-grayish-blue/60 px-5 py-4 pr-18 text-sm font-semibold text-dark-blue caret-blue placeholder:text-dark-blue/80 focus:border-blue focus:outline-none"
+                  type="email"
+                  x-model="email.value"
+                />
+                <div
+                  class="absolute bottom-0 right-0 top-0 flex items-center pr-6"
+                  :class="email.valid ? 'hidden' : 'block'"
+                >
+                  <img class="" src="/images/icon-error.svg" alt="" />
+                </div>
+              </div>
+              <strong
+                id="email-error"
+                class="mt-2 block w-full text-right text-[.6875rem] font-medium italic text-red"
+                :class="email.valid ? 'hidden' : 'block'"
+                aria-live="polite"
+                x-text="email.message"
+              ></strong>
             </div>
             <div>
               <label class="sr-only" for="password">Password</label>
-              <input
-                id="password"
-                name="password"
-                placeholder="Password"
-                class="w-full rounded-md border border-grayish-blue/60 px-5 py-4 text-sm font-semibold text-dark-blue caret-blue placeholder:text-dark-blue/80 focus:border-blue focus:outline-none"
-                type="password"
-              />
+              <div class="relative">
+                <input
+                  id="password"
+                  name="password"
+                  placeholder="Password"
+                  class="w-full rounded-md border border-grayish-blue/60 bg-white px-5 py-4 pr-18 text-sm font-semibold text-dark-blue caret-blue placeholder:text-dark-blue/80 focus:border-blue focus:outline-none"
+                  type="password"
+                  x-model="password.value"
+                />
+                <div
+                  class="absolute bottom-0 right-0 top-0 flex items-center pr-6"
+                  :class="password.valid ? 'hidden' : 'block'"
+                >
+                  <img class="" src="/images/icon-error.svg" alt="" />
+                </div>
+              </div>
+              <strong
+                id="password-error"
+                class="mt-2 block w-full text-right text-[.6875rem] font-medium italic text-red"
+                :class="password.valid ? 'hidden' : 'block'"
+                aria-live="polite"
+                x-text="password.message"
+              ></strong>
             </div>
             <div>
               <button

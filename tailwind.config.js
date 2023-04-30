@@ -21,7 +21,11 @@ module.exports = {
     boxShadowColor: {
       green: 'hsl(154, 59%, 45%)',
     },
-    extend: {},
+    extend: {
+      padding: {
+        18: '4.5rem',
+      },
+    },
   },
   plugins: [],
 }
