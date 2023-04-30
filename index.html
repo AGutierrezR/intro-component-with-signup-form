@@ -57,15 +57,15 @@
                 />
                 <div
                   class="absolute bottom-0 right-0 top-0 flex items-center pr-6"
-                  :class="firstName.valid ? 'hidden' : 'block'"
+                  x-show="!firstName.valid"
                 >
                   <img class="" src="/images/icon-error.svg" alt="" />
                 </div>
               </div>
               <strong
                 id="first-name-error"
-                :class="firstName.valid ? 'hidden' : 'block'"
-                class="mt-2 w-full text-right text-[.6875rem] font-medium italic text-red"
+                class="mt-2 block w-full text-right text-[.6875rem] font-medium italic text-red"
+                x-show="!firstName.valid"
                 aria-live="polite"
                 x-text="firstName.message"
               ></strong>
@@ -83,7 +83,7 @@
                 />
                 <div
                   class="absolute bottom-0 right-0 top-0 flex items-center pr-6"
-                  :class="lastName.valid ? 'hidden' : 'block'"
+                  x-show="!lastName.valid"
                 >
                   <img class="" src="/images/icon-error.svg" alt="" />
                 </div>
@@ -91,7 +91,7 @@
               <strong
                 id="last-name-error"
                 class="mt-2 block w-full text-right text-[.6875rem] font-medium italic text-red"
-                :class="lastName.valid ? 'hidden' : 'block'"
+                x-show="!lastName.valid"
                 aria-live="polite"
                 x-text="lastName.message"
               ></strong>
@@ -109,7 +109,7 @@
                 />
                 <div
                   class="absolute bottom-0 right-0 top-0 flex items-center pr-6"
-                  :class="email.valid ? 'hidden' : 'block'"
+                  x-show="!email.valid"
                 >
                   <img class="" src="/images/icon-error.svg" alt="" />
                 </div>
@@ -117,7 +117,7 @@
               <strong
                 id="email-error"
                 class="mt-2 block w-full text-right text-[.6875rem] font-medium italic text-red"
-                :class="email.valid ? 'hidden' : 'block'"
+                x-show="!email.valid"
                 aria-live="polite"
                 x-text="email.message"
               ></strong>
@@ -135,7 +135,7 @@
                 />
                 <div
                   class="absolute bottom-0 right-0 top-0 flex items-center pr-6"
-                  :class="password.valid ? 'hidden' : 'block'"
+                  x-show="!password.valid"
                 >
                   <img class="" src="/images/icon-error.svg" alt="" />
                 </div>
@@ -143,7 +143,7 @@
               <strong
                 id="password-error"
                 class="mt-2 block w-full text-right text-[.6875rem] font-medium italic text-red"
-                :class="password.valid ? 'hidden' : 'block'"
+                x-show="!password.valid"
                 aria-live="polite"
                 x-text="password.message"
               ></strong>
@@ -158,9 +158,7 @@
               <p class="mt-2 px-4 text-center leading-[1.2rem] lg:mt-4">
                 <small class="text-[0.7rem] font-medium text-grayish-blue">
                   By clicking the button, you are agreeing to our
-                  <a href="" class="font-bold text-red"
-                    >Terms and Services</a
-                  >
+                  <a href="" class="font-bold text-red">Terms and Services</a>
                 </small>
               </p>
             </div>
